@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Kullanici.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="kullanici.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style2 {
+            color:#FFFFFF;
+            }
+        .auto-style3 {
+            height: 26px;
+            width: 126px;
+            background-color: #487CBD;
+            text-align: center;
+        }
+        .auto-style4 {
+            text-align: center;
+            background-color: #FFFFFF;
+        }
+        .auto-style5 {
+            color: #234062;
+        }
+        .auto-style6 {
+            text-align: left;
+        }
+
+        }
+    </style>
+</head >
+<body >
+    <form id="form1" runat="server">
+        <div style="width: 830px; height: 150px; margin-left: 250px; background-color: #ef9e9e">
+            <asp:Image ID="Image1" runat="server" Height="151px" ImageUrl="~/resimler/yemek-fotografi-cekimi.jpg" Width="830px" />
+        </div>
+        <div style="width: 830px; height: 20px; margin-left: 250px"></div>
+        <div style="width: 830px; height: 40px; margin-left: 250px; background-color: #fff;">
+            <table style="width: 830px; height: 28px; background-color: #FFFFFF; font-weight: 700;">
+                <tr style="background-color: #6986B1">
+                    <td class="auto-style3"><a href="AnaSayfa.aspx"><span class="auto-style2">ANA SAYFA</span></a><span class="auto-style2"> </span> </td>
+                    <td class="auto-style3"><a href="GununYemegi.aspx"><span class="auto-style2">GÜNÜN YEMEĞİ</span></a><span class="auto-style2"> </span> </td>
+                    <td class="auto-style3"><a href="TarifOner.aspx"><span class="auto-style2">TARİF ÖNER</span></a><span class="auto-style2"> </span> </td>
+                    <td class="auto-style3"><a href="Hakkimizda.aspx"><span class="auto-style2">HAKKIMIZDA</span></a><span class="auto-style2"> </span> </td>
+                    <td class="auto-style3"><a href="Iletisim.aspx"><span class="auto-style2">İLETİŞİM</span></a></td>
+                </tr>
+            </table>
+        </div>
+        <div style="width: 830px;; height: 20px; margin-left: 250px"></div>
+
+        <div style="width: 830px; height: 300px; margin-left: 250px">
+            <div style="width: 200px; float: left;width: 141px; height: 265px; background-color:#FFFFFF; text-align:justify">
+               <strong style="background-color: #FFFFFF">&nbsp;&nbsp; <span class="auto-style5"><em>KATEGORİLER</em></span></strong>
+                <br />
+                <span class="auto-style4"> 
+                <asp:DataList runat="server" ID="DataList1" BorderColor="#CCCCCC"   OnSelectedIndexChanged="DataList1_SelectedIndexChanged" Width="133px" text-align="justify" style="background-color: #FFFFFF; text-align: left">
+                    <ItemTemplate>
+                        <div style="border-style: solid; border-color: inherit; border-width: thin; background-color:#CCCCCC" class="auto-style6">
+                           <a href="KategoriDetayt.aspx?Kategoriid=<%#Eval("Kategoriid") %>">
+                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("KategoriAd") %>' BorderColor="#FFF0C4" style="color: #2A598C; font-weight: 700; font-style: italic; text-align: left;"></asp:Label> </a>
+                            &nbsp;(<asp:Label margin="auto" ID="Label2" runat="server" Text='<%# Eval("KategoriAdet") %>' BorderColor="#FFF0C4"></asp:Label>)
+                        </div>
+                    </ItemTemplate>
+
+                </asp:DataList>
+
+                </span> 
+
+            </div>
+            <div style="width: 576px;   background-color: #FFFFFF; margin-left: 200px ">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
+
